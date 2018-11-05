@@ -16,7 +16,8 @@ const PostsResource = createResource(async () => {
 });
 
 const PostResource = createResource(async id => {
-  const { data } = await axios.get(`https://jsonplaceholder.typicode.com/posts/${id}`);
+  let requestId = Math.random() > 0.5 ? 300 : id;
+  const { data } = await axios.get(`https://jsonplaceholder.typicode.com/posts/${requestId}`);
 
   await sleep(1500);
   return data;
